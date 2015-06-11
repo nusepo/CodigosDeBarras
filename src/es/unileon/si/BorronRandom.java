@@ -1,17 +1,26 @@
 package es.unileon.si;
 
 public class BorronRandom {
+	
+	private String codigo;
+	private double probabilidad;
+	
+	public BorronRandom(String c, String p) {
+		this.codigo = c;
+		this.probabilidad = Double.valueOf(p);
+	}
 
-	public static void main(String[] args) {
-		String codigoDeBarras = "8410240210404";
+	public String borrar() {
 		
-		int posicionBorron = (int) (Math.random() * codigoDeBarras.length());
+		char[] caracteres = codigo.toCharArray();
 		
-		char[] caracteres = codigoDeBarras.toCharArray();
-		caracteres[posicionBorron] = 'X';
-		String codigoConBorron = String.valueOf(caracteres);
+		for(int i=0; i<caracteres.length; i++) {
+			double aleat = Math.random();
+			if(aleat < probabilidad)
+				caracteres[i] = 'X';
+		}
 		
-		System.out.println(codigoConBorron);
+		return String.valueOf(caracteres);
 	}
 
 }

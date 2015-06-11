@@ -131,7 +131,9 @@ public class Interfaz  extends JFrame implements ActionListener{
 		
 		//escuchar evento boton  cambio digitos
 		this.btnDigitosConsecutivos.addActionListener(this);
-	
+		
+		//escuchar evento boton borron aleatorio
+		this.btnBorrarAleatorio.addActionListener(this);
 	
 	}
 
@@ -148,6 +150,10 @@ public class Interfaz  extends JFrame implements ActionListener{
 			this.txtCodigoBarras.setText(cambio.getCodigo());
 			//mostramos la diferencia entre los digitos intercambiados para ver si fucnionara la validacion
 			this.lblDiferencia.setText(cambio.getDiferencia()+"");	
+		}
+		else if(e.getSource()== this.btnBorrarAleatorio) {
+			BorronRandom borron = new BorronRandom(txtCodigoBarras.getText(), txtProbabilidad.getText());
+			txtCodigoBarras.setText(borron.borrar());
 		}
 		//en el else if otro evento de otro boton
 		
