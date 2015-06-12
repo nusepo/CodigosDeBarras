@@ -6,9 +6,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
+
 import java.awt.Toolkit;
+
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
@@ -134,6 +137,9 @@ public class Interfaz  extends JFrame implements ActionListener{
 		
 		//escuchar evento boton borron aleatorio
 		this.btnBorrarAleatorio.addActionListener(this);
+		
+		//calcular digito de control
+		this.btnDigitoControl.addActionListener(this);
 	
 	}
 
@@ -154,6 +160,11 @@ public class Interfaz  extends JFrame implements ActionListener{
 		else if(e.getSource()== this.btnBorrarAleatorio) {
 			BorronRandom borron = new BorronRandom(txtCodigoBarras.getText(), txtProbabilidad.getText());
 			txtCodigoBarras.setText(borron.borrar());
+		}
+		else if(e.getSource() == this.btnDigitoControl) {
+			CalculoDigitoDeControl control = new CalculoDigitoDeControl(this.txtCodigoBarras.getText());
+			txtCodigoBarras.setText(control.mostrar());
+			JOptionPane.showMessageDialog(null, "El dígito de control para el código " + this.txtCodigoBarras.getText() + " es: " + control.getControl(), "DÍGITO DE CONTROL", JOptionPane.INFORMATION_MESSAGE);
 		}
 		//en el else if otro evento de otro boton
 		
