@@ -48,7 +48,7 @@ public class Interfaz  extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(null);
 		
-		lblPedirCodigo = new JLabel("Introduzca el código de barras:");
+		lblPedirCodigo = new JLabel("Introduzca el cÃ³digo de barras:");
 		lblPedirCodigo.setBounds(10, 11, 196, 35);
 		this.getContentPane().add(lblPedirCodigo);
 		
@@ -144,6 +144,7 @@ public class Interfaz  extends JFrame implements ActionListener{
 		//escuchar evento boton validarcodigo
 		this.btnValidar.addActionListener(this);
 	
+		this.btnDigitoBorrado.addActionListener(this);
 	}
 
 
@@ -170,6 +171,10 @@ public class Interfaz  extends JFrame implements ActionListener{
 			
 		}else if(e.getSource() == this.btnValidar) {
 			ValidarCodigo validar = new ValidarCodigo(this.txtCodigoBarras.getText());
+		}else if(e.getSource() == this.btnDigitoBorrado){
+			RecuperarDigito recuperar = new RecuperarDigito();
+			txtCodigoBarras.setText(recuperar.recuperarDigito(this.txtCodigoBarras.getText()));
+			
 		}
 		//en el else if otro evento de otro boton
 		
