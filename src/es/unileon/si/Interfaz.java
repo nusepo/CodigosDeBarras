@@ -167,8 +167,7 @@ public class Interfaz  extends JFrame implements ActionListener{
 		else if(e.getSource() == this.btnDigitoControl) {
 			CalculoDigitoDeControl control = new CalculoDigitoDeControl(this.txtCodigoBarras.getText());
 			txtCodigoBarras.setText(control.mostrar());
-			JOptionPane.showMessageDialog(null, "El dígito de control para el código " + this.txtCodigoBarras.getText() + " es: " + control.getControl(), "DÍGITO DE CONTROL", JOptionPane.INFORMATION_MESSAGE);
-		
+			
 		}else if(e.getSource() == this.btnValidar) {
 			ValidarCodigo validar = new ValidarCodigo(this.txtCodigoBarras.getText());
 		}
