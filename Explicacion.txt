@@ -1,0 +1,61 @@
+Lo que haría al entrar en el condicional correspondiente es lo siguiente:
+
+Tenemos el código de barras
+
+4 9 0 2 5 0 5 1 5 4 9 0 4
+
+Si por ejemplo hacemos un borrón en el segundo dígito:
+
+4 X 0 2 5 0 5 1 5 4 9 0 4
+
+Para recuperar el borrón sería
+
+4 + 0 + 5 + 5 + 5 + 9 + 4 + 3*(2+0+1+4+0) + 3x
+
+Resultado 3X + 53;
+
+sum = 53 --> 53%10 = 3
+
+(3*3)%10 = 9
+
+Dígito recuperado : 9
+
+Si pruebas con cualquiera de los dígitos de las posiciones pares podrás ver que efectivamente funciona.
+
+Ahora , la pregunta ¿Fuerza bruta o análisis? Sinceramente no te sabría responder a la pregunta, en el código lo que hice fue crear un array en el que iba almacenando los dígitos para ello cogía el último dígito (num%10) y lo introducía en una posición del array, para poder coger el siguiente número lo que hacíamos era dividir entre 10 y al tratarse de números de tipo entero, la parte decimal se obviaba. De aquí mi mente (A veces un poco retorcida) sacó como conclusión que ese sería el algoritmo necesario para obtener el dígito que buscamos.
+
+Ahora te explico la "propiedad" que habría deducido de todo esto:
+
+(a+b*c)mod10 = 0  ---> (a*b)mod10 =c 
+
+Para el ejemplo anterior, a sería el equivalente a SUMA y c sería el equivalente a la X:
+
+a = 53
+b = 3 
+c = X 
+
+Aplicando la fórmula:
+
+(53+3*C)mod10 = 0 ----> (53*3)mod10 = c --> c=9
+
+Trabajando con módulo 10 esta "propiedad" funcionaría para todos los casos con una única excepción:
+
+b = par
+a = impar
+
+Ya que al multiplicar un número par por otro número siempre va a dar como resultado un número par y, al sumarle un número impar sería siempre mod10!=0 , nunca sería un número terminado en 0 (teniendo en cuenta también que trabajamos sobre números enteros)
+
+Ej: 
+
+a = 7
+b = 2 
+c = ? 
+
+(2c + 7 )mod10 = 0
+(7*2)mod10 = c =>4 
+
+Ahora si verificamos sustituyendo la C sobre la "propiedad":
+
+(7+2*4)mod10 != 0 <-- Error.
+
+En nuestro caso, el de los códigos de barras, esto nunca pasaría ya que B es impar.
