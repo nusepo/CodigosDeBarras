@@ -22,7 +22,11 @@ Dígito recuperado : 9
 
 Si pruebas con cualquiera de los dígitos de las posiciones pares podrás ver que efectivamente funciona.
 
-Ahora , la pregunta ¿Fuerza bruta o análisis? Sinceramente no te sabría responder a la pregunta, en el código lo que hice fue crear un array en el que iba almacenando los dígitos para ello cogía el último dígito (num%10) y lo introducía en una posición del array, para poder coger el siguiente número lo que hacíamos era dividir entre 10 y al tratarse de números de tipo entero, la parte decimal se obviaba. De aquí mi mente (A veces un poco retorcida) sacó como conclusión que ese sería el algoritmo necesario para obtener el dígito que buscamos.
+Ahora , la pregunta ¿Fuerza bruta o análisis? Sinceramente no te sabría responder a la pregunta, en el código 
+lo que hice fue crear un array en el que iba almacenando los dígitos para ello cogía el último dígito (num%10) 
+y lo introducía en una posición del array, para poder coger el siguiente número lo que hacíamos era dividir 
+entre 10 y al tratarse de números de tipo entero, la parte decimal se obviaba. De aquí mi mente (A veces un 
+poco retorcida) sacó como conclusión que ese sería el algoritmo necesario para obtener el dígito que buscamos.
 
 Ahora te explico la "propiedad" que habría deducido de todo esto:
 
