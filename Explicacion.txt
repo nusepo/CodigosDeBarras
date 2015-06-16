@@ -47,7 +47,9 @@ Trabajando con módulo 10 esta "propiedad" funcionaría para todos los casos con
 b = par
 a = impar
 
-Ya que al multiplicar un número par por otro número siempre va a dar como resultado un número par y, al sumarle un número impar sería siempre mod10!=0 , nunca sería un número terminado en 0 (teniendo en cuenta también que trabajamos sobre números enteros)
+Ya que al multiplicar un número par por otro número siempre va a dar como resultado un número par y, al sumarle 
+un número impar sería siempre mod10!=0 , nunca sería un número terminado en 0 (teniendo en cuenta también que 
+trabajamos sobre números enteros)
 
 Ej: 
 
